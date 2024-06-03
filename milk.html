@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title> Chocolate</title>
+		<link rel="stylesheet" href="css/dark.css" />
+		<link href="https://fonts.gdgdocs.org/css?family=Lobster" rel="stylesheet" type="text/css">
+		<style> 
+			* {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  box-sizing: border-box;
+}
+table, th, td {
+    border: 1px solid black;
+}
+.listing-section, .cart-section {
+  width: 100%;
+  float: left;
+  padding: 1%;
+  border-bottom: 0.01em solid #dddbdb;
+}
+
+.product {
+  float: left;
+  width: 23%;
+  border-radius: 2%;
+  margin: 1%;
+}
+
+.product:hover {
+  box-shadow: 1.5px 1.5px 2.5px 3px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 1.5px 1.5px 2.5px 3px rgba(0, 0, 0, 0.4);  
+  -moz-box-shadow:    1.5px 1.5px 2.5px 3px rgba(0, 0, 0, 0.4);
+}
+
+.image-box {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 2% 2% 0 0;
+}
+
+.images {
+  height: 15em;
+  background-size: cover; 
+  background-position: center center; 
+  background-repeat: no-repeat;
+  border-radius: 2% 2% 0 0;
+  transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  -webkit-transition: all 1s ease;
+  -o-transition: all 1s ease;
+}
+
+.images:hover {
+  transform: scale(1.2);
+  overflow: hidden;
+  border-radius: 2%;
+}
+
+/* IMAGES */
+#image-1 {background-image: url("img/darkn.jpg");}
+
+#image-2 {background-image: url("img/milk1.jpg")}
+
+#image-3 {background-image: url("img/milk2.jpg")}
+
+#image-4 {background-image: url("img/milk3.jpg")}
+
+#image-5 {background-image: url("img/milk4.jpg")}
+
+#image-6 {background-image: url("img/dark5.jpg")}
+
+#image-7 {background-image: url("img/dark6.jpg")}
+
+#image-8 {background-image: url("img/dark7.jpg")}
+
+#image-9 {background-image: url("img/dark8.jpg")}
+#image-10 {background-image: url("img/dark10.jpg")}
+
+.text-box {
+  width: 100%;
+  float: left;
+  border: 0.01em solid #dddbdb;
+  border-radius: 0 0 2% 2%;
+  padding: 1em;
+}
+
+h2, h3 {
+  float: left;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 1em;
+  text-transform: uppercase;
+  margin: 0.2em auto;
+}
+
+.item, .price {
+  clear: left;
+  width: 100%;
+  text-align: center;
+}
+
+.price {
+  color: Grey;
+}
+
+.description, label, button, input {
+  clear: left;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+  text-align: center;
+  margin: 0.2em auto;
+}
+
+input:focus {
+  outline-color: #fdf;
+}
+
+label {
+  width: 60%;
+}
+
+.text-box input {
+  width: 15%;
+  clear: none;
+}
+
+.text-box button {
+  margin-top: 1em;
+}
+
+button {
+  padding: 2%;
+  background-color: #dfd;
+  border: none;
+  border-radius: 2%;
+}
+
+button:hover {
+  bottom: 0.1em;
+}
+
+button:focus {
+  outline: 0;
+}
+
+button:active {
+  bottom: 0;
+  background-color: #fdf;
+}
+
+.table-heading, .table-content {
+  width: 75%;
+  margin: 1% 12.25%;
+  float: left;
+  background-color: #dfd;
+}
+
+.table-heading h2 {
+  padding: 1%;
+  margin: 0;
+  text-align: center;
+}
+
+.cart-product {
+  width: 50%;
+  float: left;
+}
+
+.cart-price {
+  width: 15%;
+  float: left;
+}
+
+.cart-quantity {
+  width: 10%;
+  float: left;
+}
+
+.cart-total {
+  width: 25%;
+  float: left;
+}
+
+.cart-image-box {
+  width: 20%;
+  overflow: hidden;
+  border-radius: 2%;
+  float: left;
+  margin: 1%;
+}
+
+.cart-images {
+  height: 7em;
+  background-size: cover; 
+  background-position: center center; 
+  background-repeat: no-repeat;
+}
+
+.cart-item {
+  width: 20%;
+  float: left;
+  margin: 3.2em 1%;
+  text-align: center;
+}
+.cart-description {
+  width: 53%;
+  float: left;
+  margin: 3.2em 1%;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 1em;
+  text-align: center;
+}
+
+.cart-price h3, .cart-total h3 {
+  margin: 3.2em 5% 3.2em 20%;
+  width: 60%;
+}
+
+.cart-quantity input {
+  margin: 3.2em 1%;
+  border: none;
+}
+
+.remove {
+  width: 10%;
+  margin: 1px;
+  float: right;
+  clear: right;
+}
+
+.coupon {
+  width: 20%;
+  background-color: #dfd;
+  margin: 1% 1% 1% 12.25%;
+  float: left;
+  height: 6em;
+}
+
+.coupon input {
+  width: 60%;
+  border: none;
+  margin: 12.75% 5%;
+  padding: 1%;
+}
+
+.coupon button {
+  width: 25%;
+  float: left;
+  clear: right;
+  margin: 12% 5% 12% 0;
+}
+
+.keep-shopping {
+  width: 15%;
+  height: 6em;
+  float: left;
+  margin: 1% auto;
+  padding: 1%;
+  background-color: #dfd;
+}
+
+.keep-shopping button {
+  text-transform: uppercase;
+  margin: 12% auto;
+  
+}
+
+.checkout {
+  width: 37.25%;
+  margin: 1% 12.75% 1% 1%;
+  float: right;
+  background-color: #dfd;
+  height: 6em;
+}
+
+.checkout button {
+  width: 30%;
+  clear: none;
+  margin: 5.4% 0 5.4% 5.5%;
+  text-transform: uppercase;
+}
+
+.final-cart-total {
+  width: 15%;
+  float: right;
+  margin: 7%;
+  background-color: White;
+}
+
+.final-cart-total h3 {
+  color: Black;
+}  
+
+		</style>
+	</head>
+
+	<body>
+		<nav class="fixed-nav-bar">
+			<!-- Fixed Navigation bar content -->
+			<ul id="f">
+				<a href="loginSuccessfully.html">
+					<li style="float: left; font-size: 46px; margin-left: 30px;margin-top: 10px;">
+						
+						<font size="30px" color="gold">C</font>
+						<font color="goldenrod">hcolate</font>
+					</li>
+				</a>
+				<img src="img/chocolate.png" style="width: 100px;margin-top: 10px;" />
+				<li id="h" class="drop-down" style="margin-right: 70px;">
+					<span id="c" class="username">Admin</span>	
+					<ul class="drop-down-content">
+					
+				    <li style="background: rgba(106,86,56,0.6);">
+                        <a href="editprofile.html">Edit Profile</a>
+                        <br />
+					<a href="index.html">Log Off</a>
+					</li>
+					</ul>
+				</li>
+				<img src="img/admin.png" style="position: absolute;top: 25px;right: 55px;width: 40px;height: 40px;"/>
+				<li id="h">
+					<a id="c">ShoppingCart <span class="glyphicon glyphicon-shopping-cart my-cart-icon"><span class="badge badge-notify my-cart-badge"></span></span>
+					</a>
+
+				</li>
+				<li id="h" >
+					<a id="c" href="flavor.html">Flavor</a>
+				</li>
+				
+			</ul>
+		</nav>
+        <!-- Product Listing Starts Here -->
+		<div class="listing-section" style="margin-top: 90px;">
+			<div class="container-fluid">
+				<div class="form-group my-2">
+				   <input type="text" class="form-control form-control-lg searchbox" placeholder="Search..." />
+			</div>
+			<div class="product">
+			  <div class="image-box">
+				<div class="images" id="image-1"></div>
+			  </div>
+			  <div class="text-box">
+				<h2 class="item">Dark Decadence Truffle Flight</h2>
+				<h3 class="price">Price: $4.99</h3>
+				<h3 class="price aquantity">Quantity: 10</h3>
+				<p class="description">A bag of delicious Dark Decadence !</p>
+				<button onclick="location.href = 'buyDark1.html';" type="button" name="item-1-button" id="item-1-button">View more</button>
+				<button class="btn btn-danger my-cart-btn" data-id="1" data-name="Dark Decadence Truffle Flight" data-summary="ark Decadence Truffle Flight" data-price="4.99" data-quantity="1" data-aquantity="10" data-image="img/darkn.jpg">Add to Cart</button>
+
+			</div>
+			</div>
+			<div class="product">
+			  <div class="image-box">
+				<div class="images" id="image-2"></div>
+			  </div>
+			  <div class="text-box">
+				<h2 class="item">Cadbury Dairy Milk</h2>
+				<h3 class="price">Price: $4.99</h3>
+				<h3 class="price aquantity">Quantity: 10</h3>
+				<p class="description">A bag of delicious cadbury dairy milk !</p>
+				<button onclick="location.href = 'buyDark1.html';" type="button" name="item-2-button" id="item-2-button">View More</button>
+				<button class="btn btn-danger my-cart-btn" data-id="2" data-name="A bag of delicious cadbury" data-summary="ark Cadbury Dairy Milk" data-price="4.99" data-quantity="1" data-aquantity="10" data-image="img/milk1.jpg">Add to Cart</button>
+
+				
+			  </div>
+			</div>
+			<div class="product">
+			  <div class="image-box">
+				<div class="images" id="image-3"></div>
+			  </div>
+			  <div class="text-box">
+				<h2 class="item">Hershey's Milk Chocolate</h2>
+				<h3 class="price">Price: $4.99</h3>
+				<h3 class="price aquantity">Quantity: 10</h3>
+				<p class="description">A bag of delicious Hershey's Milk Chocolate !</p>
+				<button onclick="location.href = 'buyDark1.html';" type="button" name="item-1-button" id="item-1-button">View more</button>
+				<button class="btn btn-danger my-cart-btn" data-id="3" data-name="Hershey's Milk Chocolate" data-summary="ark Hershey's Milk Chocolate" data-price="4.99" data-quantity="1" data-aquantity="10" data-image="img/milk2.jpg">Add to Cart</button>
+			  </div>
+			</div>
+			<div class="product">
+			  <div class="image-box">
+				<div class="images" id="image-4"></div>
+			  </div>
+			  <div class="text-box">
+				<h2 class="item">Ghirardelli Milk Chocolate</h2>
+				<h3 class="price">Price: $4.99</h3>
+				<h3 class="price aquantity">Quantity: 10</h3>
+				<p class="description">A bag of delicious Dark Decadence !</p>
+				<button onclick="location.href = 'buyDark1.html';" type="button" name="item-1-button" id="item-1-button">View more</button>
+				<button class="btn btn-danger my-cart-btn" data-id="4" data-name="Ghirardelli Milk Chocolate" data-summary="ark Ghirardelli Milk Chocolate" data-price="4.99" data-quantity="1" data-aquantity="10" data-image="img/milk3.jpg">Add to Cart</button>
+			  </div>
+			</div>
+			<div class="product">
+			  <div class="image-box">
+				<div class="images" id="image-5"></div>
+			  </div>
+			  <div class="text-box">
+				<h2 class="item">Toblerone Milk Chocolate</h2>
+				<h3 class="price">Price: $4.99</h3>
+				<h3 class="price aquantity">Quantity: 10</h3>
+				<p class="description">A bag of delicious Toblerone Milk Chocolate !</p>
+				<button onclick="location.href = 'buyDark1.html';" type="button" name="item-1-button" id="item-1-button">View more</button>
+				<button class="btn btn-danger my-cart-btn" data-id="5" data-name="Toblerone Milk Chocolate" data-summary="ark Toblerone Milk Chocolate" data-price="4.99" data-quantity="1" data-aquantity="10" data-image="img/milk4.jpg">Add to Cart</button>
+			  </div>
+			</div>
+			<div class="product">
+			  <div class="image-box">
+				<div class="images" id="image-6"></div>
+			  </div>
+			  <div class="text-box">
+				<h2 class="item">Milka Alpine Milk Chocolate</h2>
+				<h3 class="price">Price: $4.99</h3>
+				<h3 class="price aquantity">Quantity: 10</h3>
+				<p class="description">A bag of delicious Milka Alpine Milk Chocolate !</p>
+				<button onclick="location.href = 'buyDark1.html';" type="button" name="item-1-button" id="item-1-button">View more</button>
+				<button class="btn btn-danger my-cart-btn" data-id="6" data-name="Milka Alpine Milk Chocolate Truffle Flight" data-summary="ark Milka Alpine Milk Chocolate" data-price="4.99" data-quantity="1" data-aquantity="10" data-image="img/milk5.jpg">Add to Cart</button>
+			  </div>
+			</div>
+			<div class="product">
+			  <div class="image-box">
+				<div class="images" id="image-7"></div>
+			  </div>
+			  <div class="text-box">
+				<h2 class="item">Nestlé Milkybar</h2>
+				<h3 class="price">Price: $4.99</h3>
+				<h3 class="price aquantity">Quantity: 10</h3>
+				<p class="description">A bag of delicious Nestlé Milkybar !</p>
+				<button onclick="location.href = 'buyDark1.html';" type="button" name="item-1-button" id="item-1-button">View more</button>
+				<button class="btn btn-danger my-cart-btn" data-id="7" data-name="Nestlé Milkybar Truffle Flight" data-summary="ark Decadence Truffle Flight" data-price="4.99" data-quantity="1" data-aquantity="10" data-image="img/darkn.jpg">Add to Cart</button>
+			  </div>
+			</div>
+
+			<div class="product">
+			  <div class="image-box">
+				<div class="images" id="image-9"></div>
+			  </div>
+			  <div class="text-box">
+				<h2 class="item">Godiva Hot Chocolate</h2>
+				<h3 class="price">Price: $4.99</h3>
+				<h3 class="price aquantity">Quantity: 10</h3>
+				<p class="description">A bag of delicious Godiva Hot Chocolate !</p>
+				<button onclick="location.href = 'buyDark1.html';" type="button" name="item-1-button" id="item-1-button">View more</button>
+				<button class="btn btn-danger my-cart-btn" data-id="8" data-name="Godiva Hot Chocolate Truffle Flight" data-summary="ark Godiva Hot Chocolate" data-price="4.99" data-quantity="1" data-aquantity="10" data-image="img/milk4.jpg">Add to Cart</button>
+			  </div>
+			</div>
+			<div class="product">
+			  <div class="image-box">
+				<div class="images" id="image-10"></div>
+			  </div>
+			  <div class="text-box">
+				<h2 class="item">Godiva Masterpiece</h2>
+				<h3 class="price">Price: $4.99</h3>
+				<h3 class="price aquantity">Quantity: 10</h3>
+				<p class="description">A bag of delicious Godiva Masterpiece !</p>
+				<button onclick="location.href = 'buyDark1.html';" type="button" name="item-1-button" id="item-1-button">View more</button>
+				<button class="btn btn-danger my-cart-btn" data-id="9" data-name="Godiva Masterpiece Truffle Flight" data-summary="ark Godiva Masterpiece" data-price="4.99" data-quantity="1" data-aquantity="10" data-image="img/milk4.jpg">Add to Cart</button>
+			  </div>
+			</div>
+			<div class="modal">
+				</div>
+		  </div>
+		
+
+		  </div>
+          <script src="js/jquery-3.2.1.min.js"></script>
+          <script>
+              $(document).ready(function(){
+                  setName()
+              });
+      
+              //get username from local storage and display in navbar
+              function setName(){
+                  var storedName = localStorage.getItem('username');
+                  $(".username").text(storedName);
+              }
+          </script>
+		  <script src="js/jquery-2.2.3.min.js"></script>
+		  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+		  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+		  <script type='text/javascript' src="js/jquery.mycart.js"></script>
+		  <script type="text/javascript">
+
+            //Animation after userclicks on add to cart option
+		  $(function () {
+		    //Initialize the cart item
+			var goToCartIcon = function($addTocartBtn){
+			  var $cartIcon = $(".my-cart-icon");
+			  var $image = $('<img width="30px" height="30px" src="' + $addTocartBtn.data("image") + '"/>').css({"position": "fixed", "z-index": "999"});
+			  $addTocartBtn.prepend($image);
+			  var position = $cartIcon.position();
+			  $image.animate({
+				top: position.top,
+				left: position.left
+			  }, 500 , "linear", function() {
+				$image.remove();
+			  });
+			}
+
+            // Add to cart functionality
+			$('.my-cart-btn').myCart({
+			  currencySymbol: '$',
+			  classCartIcon: 'my-cart-icon',
+			  classCartBadge: 'my-cart-badge',
+			  classProductQuantity: 'my-product-quantity',
+			  classProductRemove: 'my-product-remove',
+			  classCheckoutCart: 'my-cart-checkout',
+			  affixCartIcon: true,
+			  showCheckoutModal: true,
+			  numberOfDecimals: 2,
+			  cartItems: [
+				
+			  ],
+			  clickOnAddToCart: function($addTocart){
+				goToCartIcon($addTocart);
+			  },
+			  afterAddOnCart: function(products, totalPrice, totalQuantity) {
+				console.log("afterAddOnCart", products, totalPrice, totalQuantity);
+			  },
+			  clickOnCartIcon: function($cartIcon, products, totalPrice, totalQuantity) {
+				console.log("cart icon clicked", $cartIcon, products, totalPrice, totalQuantity);
+			  },
+			  checkoutCart: function(products, totalPrice, totalQuantity) {
+				var checkoutString = "Thank you for shopping items of Total Price: " + totalPrice;
+				alert(checkoutString);
+				console.log("checking out", products, totalPrice, totalQuantity);
+			  },
+			  getDiscountPrice: function(products, totalPrice, totalQuantity) {
+				console.log("calculating discount", products, totalPrice, totalQuantity);
+				return totalPrice;
+			  }
+			});
+		
+			var $targets = $('.product');
+
+            // search for available items in page
+            $('.searchbox').on('input', function () {
+            $targets.show();
+            
+            var text = $(this).val().toLowerCase();   
+            if (text) {      
+                $targets.filter(':visible').each(function () {
+                    var $target = $(this);
+                    var $matches = 0;
+                    // Search only in targeted element
+                    $target.find('.item').add($target).each(function () {            
+                        if ($(this).text().toLowerCase().indexOf("" + text + "") !== -1) {
+                        $matches++;
+                        }
+                    });
+                    if ($matches === 0) {
+                        $target.hide();
+                    }
+                });
+            }
+            
+            });
+		  });
+</script>
+		 
+</html>

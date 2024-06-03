@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>Login/Register</title>
+		<link rel="stylesheet" href="css/login.css" />
+		<script type="text/javascript" src="js/login.js"></script>
+	</head>
+
+	<body>
+		<div class="cotn_principal">
+			<div class="cont_centrar">
+
+				<div class="cont_login">
+					<div class="cont_info_log_sign_up">
+						<div class="col_md_login">
+							<div class="cont_ba_opcitiy">
+
+								<h2 style="color: chocolate;">LOGIN</h2>
+								<p>Welcome Back！</p>
+								<button class="btn_login" onclick="login()">LOGIN</button>
+							</div>
+						</div>
+						<div class="col_md_sign_up">
+							<div class="cont_ba_opcitiy">
+								<h2 style="color: chocolate;">SIGN UP</h2>
+
+								<p>Thanks for Joining Us！</p>
+
+								<button class="btn_sign_up" onclick="sign_up()">SIGN UP</button>
+							</div>
+						</div>
+					</div>
+
+					<div class="cont_back_info">
+						<div class="cont_img_back_grey">
+							<img src="img/background7.jpg" alt="" />
+						</div>
+
+					</div>
+					<div class="cont_forms">
+						<div class="cont_img_back_">
+							<img src="img/background7.jpg" alt="" />
+						</div>
+						<!-- Login container starts here -->
+						<div class="cont_form_login">
+							<a href="#" onclick="login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
+							<h2 style="color: chocolate;">LOGIN</h2>
+							<input type="text" id="login_email" placeholder="Username" />
+							<input type="password" id="login_password" placeholder="Password" /><br />
+							<button class="btn_login" id="login" onclick="login()">
+							<button class="btn_login" onclick="check()">
+
+							<a href="javascript:;" style="text-decoration:none;color: white;">LOGIN</a>
+							</button>	
+						</div>
+						<!-- Login container ends here -->
+					<!-- Signup Form starts here -->
+						<div class="cont_form_sign_up">
+							<a href="#" onclick="login_sign_up()"><i class="material-icons">&#xE5C4;</i></a>
+							<h2 style="color: chocolate;">SIGN UP</h2>
+							<span id="error" style="color:red">
+							
+							</span>
+							<input type="email" id="email" placeholder="Email" />
+							<input type="text" id="username" placeholder="Username" />
+							<input type="password" id="password" placeholder="Password" />
+							<input type="password" id="confirm_password" placeholder="Confirm Password" /><br />
+							<button class="btn_sign_up" onclick="store()">SIGN UP</button>
+							<button class="btn_sign_up" id="signup" onclick="sign_up()">SIGN UP</button>
+
+						</div>
+						<!-- Signup form ends here -->
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</body>
+
+</html>

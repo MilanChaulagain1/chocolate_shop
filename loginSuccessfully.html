@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Chocolate</title>
+    <meta name="" content="" />
+    <link rel="stylesheet" href="css/loginSuccessfully.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link
+      href="https://fonts.gdgdocs.org/css?family=Lobster"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="css/core.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+    <script>
+      $(function () {
+        $(".bxslider").bxSlider({
+          auto: true,
+          adaptiveHeight: true,
+          mode: "fade",
+          pause: 1000,
+          speed: 2000,
+          pager: false,
+          useCSS: false,
+          //   slideWidth: 600
+        });
+        setName();
+      });
+      function setName() {
+        var storedName = localStorage.getItem("username");
+        $(".username").text(storedName);
+      }
+    </script>
+  </head>
+
+  <body>
+    <!-- Modal -->
+
+    <nav class="fixed-nav-bar">
+      <!-- Fixed Navigation bar content -->
+      <ul id="f">
+        <a href="loginSuccessfully.html">
+          <li
+            style="
+              float: left;
+              font-size: 46px;
+              margin-left: 30px;
+              margin-top: 10px;
+            "
+          >
+            <font size="30px" color="gold">C</font>
+            <font color="goldenrod">hcolate</font>
+          </li>
+        </a>
+        <img src="img/chocolate.png" style="width: 100px; margin-top: 10px" />
+        <li id="h" class="drop-down" style="margin-right: 70px">
+          <span id="c" class="username">Admin</span>
+          <ul class="drop-down-content">
+            <li style="background: rgba(106, 86, 56, 0.6)">
+              <a href="editprofile.html">Edit Profile</a>
+              <br />
+              <a href="index.html">Log Off</a>
+            </li>
+          </ul>
+        </li>
+        <img
+          src="img/admin.png"
+          style="
+            position: absolute;
+            top: 25px;
+            right: 55px;
+            width: 40px;
+            height: 40px;
+          "
+        />
+        <li id="h">
+          <a id="c" href="shoppingCart.html">ShoppingCart</a>
+        </li>
+        <li id="h">
+          <a id="c" href="flavor.html">Flavor</a>
+        </li>
+      </ul>
+    </nav>
+    <div id="header" style="z-index: 1; position: absolute">
+      <div class="carousel">
+        <div class="bxslider">
+          <div>
+            <img src="img/background1.jpg" title="Buy More Save More" />
+          </div>
+          <div><img src="img/background5.jpg" title="MR·GOODBAR" /></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

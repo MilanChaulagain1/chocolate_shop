@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Flavor</title>
+    <meta name="" content="" />
+    <link rel="stylesheet" href="css/flavor.css" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="http://gudh.github.io/ihover/dist/styles/main.css"
+    />
+    <link
+      href="https://fonts.gdgdocs.org/css?family=Lobster"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Pacifico"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="css/core.css" />
+    <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery1.9.1.min.js"></script>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        background-color: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      /*customer registration*/
+      #customerForm {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      /*form group  */
+      .form-group {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      label {
+        width: 120px;
+        margin-right: 10px;
+        font-weight: bold;
+      }
+
+      /* input field styles */
+      input[type="text"],
+      input[type="password"],
+      input[type="number"],
+      select {
+        box-sizing: border-box;
+        width: 250px;
+        padding: 8px;
+        border-radius: 5px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+      }
+
+      #radio {
+        margin-right: -15px;
+      }
+
+      /* update button container */
+      #update-container {
+        text-align: center;
+      }
+
+      /*button stylling */
+      #updateBtn {
+        width: 25%;
+        padding: 10px 20px;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        background-color: rgba(106, 86, 56, 1);
+        cursor: pointer;
+      }
+
+      #updateBtn:hover {
+        background-color: rgba(106, 86, 56, 1);
+      }
+
+      /* error messages of input fields */
+      .error {
+        color: red;
+        margin-left: 5px;
+      }
+    </style>
+  </head>
+
+  <body background="img/background11.png" style="background-repeat: no-repeat">
+    <nav class="fixed-nav-bar">
+      <!-- Fixed Navigation bar content -->
+      <ul id="f">
+        <a href="loginSuccessfully.html">
+          <li
+            style="
+              float: left;
+              font-size: 46px;
+              margin-left: 30px;
+              margin-top: 10px;
+            "
+          >
+            <font size="30px" color="gold">C</font>
+            <font color="goldenrod">hcolate</font>
+          </li>
+        </a>
+        <img src="img/chocolate.png" style="width: 100px; margin-top: 10px" />
+        <li id="h" class="drop-down" style="margin-right: 70px">
+          <span id="c" class="username">Admin</span>
+          <ul class="drop-down-content">
+            <li style="background: rgba(106, 86, 56, 0.6)">
+              <a href="index.html">Log Off</a>
+            </li>
+          </ul>
+        </li>
+        <img
+          src="img/admin.png"
+          style="
+            position: absolute;
+            top: 25px;
+            right: 55px;
+            width: 40px;
+            height: 40px;
+          "
+        />
+        <li id="h">
+          <a id="c" href="shoppingCart.html">ShoppingCart</a>
+        </li>
+        <li id="h">
+          <a id="c" href="flavor.html">Flavor</a>
+        </li>
+      </ul>
+    </nav>
+
+    <br /><br /><br /><br /><br />
+    <!-- Form starts here -->
+    <form id="customerForm">
+      <h1>Edit Customer Profile</h1>
+      <!-- Name -->
+      <div class="form-group">
+        <label for="name">Username</label>
+        <input type="text" name="name" id="name" />
+        <span class="error" id="nameError"></span>
+      </div>
+      <!-- Password -->
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" />
+        <span class="error" id="passwordError"></span>
+      </div>
+      <!-- Confirm Password -->
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" />
+        <span class="error" id="confirmPasswordError"></span>
+      </div>
+
+      <!-- Update -->
+      <div id="update-container">
+        <button type="button" id="updateBtn">Update</button>
+      </div>
+    </form>
+    <!-- Form ends here -->
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        setName();
+      });
+
+      // display username in navbar after user login
+      function setName() {
+        var storedName = localStorage.getItem("username");
+        $(".username").text(storedName);
+      }
+
+      $("#updateBtn").click(function () {
+        // Clear old error messages
+        $(".error").text("");
+
+        var errors = []; // initialize arry to store errors
+
+        // Check if any input fields are empty in form
+        $("#customerForm input, #customerForm select").each(function () {
+          if (!$(this).val()) {
+            // check for error entry in input fields
+            var fieldName = $(this).attr("name");
+            $("#" + fieldName + "Error").text(
+              fieldName.charAt(0).toUpperCase() +
+                fieldName.slice(1) +
+                " is required."
+            );
+            //add errors to error array if any error messages
+            errors.push(
+              fieldName.charAt(0).toUpperCase() +
+                fieldName.slice(1) +
+                " is required."
+            );
+          }
+        });
+
+        // Check if both passwords match
+        var password = $("#password").val();
+        var confirmPassword = $("#confirmPassword").val();
+        if (password !== confirmPassword) {
+          $("#confirmPasswordError").text(
+            "Passwords do not match. Try again!!"
+          );
+          errors.push("Passwords do not match. Try again!!");
+        }
+
+        // Display errors or submit form
+        if (!(errors.length > 0)) {
+          // if error array is empty then submit the form
+          $("#errorMessages").html("");
+          //console.log("Form submitted successfully!!");
+          //   alert("Form submitted successfully!!");
+
+          //update username
+          localStorage.setItem("username", $("#name").val());
+          var oldPassword = localStorage.getItem("pw");
+          if (oldPassword != password) {
+            localStorage.setItem("pw", password);
+            alert("Password changed successfully");
+          }
+          //reload window after form submission
+          window.location.reload();
+        }
+      });
+    </script>
+  </body>
+</html>
